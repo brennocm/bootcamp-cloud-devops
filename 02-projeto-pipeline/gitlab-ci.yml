@@ -16,8 +16,8 @@ build_images:
     - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
 
   script:
-    - docker build -t denilsonbonatti/kubernetes-projeto2-dio:1.0 app/.
-    - docker push denilsonbonatti/kubernetes-projeto2-dio:1.0
+    - docker build -t brennocm/kubernetes-projeto2-dio:1.0 app/.
+    - docker push brennocm/kubernetes-projeto2-dio:1.0
 
 deploy_gcp:
 
@@ -27,4 +27,4 @@ deploy_gcp:
     - chmod 400 $SSH_KEY
   
   script:
-      - ssh -o StrictHostKeyChecking=no -i $SSH_KEY gcp@$SSH_SERVER "sudo rm -Rf ./kubernetes-projeto2-dio/ && sudo git clone https://gitlab.com/denilsonbonatti/kubernetes-projeto2-dio.git && cd kubernetes-projeto2-dio && sudo chmod +x ./script.sh && ./script.sh"
+      - ssh -o StrictHostKeyChecking=no -i $SSH_KEY gcp@$SSH_SERVER "sudo rm -Rf ./kubernetes-projeto2-dio/ && sudo git clone https://gitlab.com/brennocm/kubernetes-projeto2-dio.git && cd kubernetes-projeto2-dio && sudo chmod +x ./script.sh && ./script.sh"
